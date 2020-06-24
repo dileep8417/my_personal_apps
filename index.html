@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Placement Prep...</title>
+    <style>
+        #shedule{
+            width:100%;
+            height:auto;
+            display: flex;
+            min-height:100vh;
+            position: absolute;
+            top:0;
+            left:0;
+            margin: 0;;
+            background-color: beige;
+            flex-direction: row;
+        }
+        #coding-shedule{
+            flex:1;
+            background-color: aqua;
+        }
+        #aptitude-shedule{
+            flex:1;
+            background-color:antiquewhite;
+        }
+        ul li ul li ul li ul li:hover{
+            color: rgb(63, 212, 33);;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .card{
+            padding:10px;
+            margin-bottom: 10px;;
+        }
+        
+        @media(max-width:620px){
+            #shedule{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="shedule">
+        <div id="coding-shedule">
+            <h3>Coding Preparation</h3>
+            <div class="card">
+                <h5 class="card-title">Level-1</h5>
+                <h6>Contains normal programs</h6>
+                <table class="table">
+                    <tr>
+                        <th>S.No</th>
+                        <th>Program</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="">Pairing the socks</a></td>
+                    </tr>
+
+                </table>
+            </div>
+           
+            <div class="card">
+                <h5 class="card-title">Level-2</h5>
+                <h6>Contains programs related to data structures</h6>
+                <div class="card-content">
+                    <ul>
+                        <li><h5>Data Structures</h5>
+                            <ul>
+                                <li>Binary Tree:
+                                    <ul>
+                                        <li>Operations:-
+                                            <ul>
+                                                <li>Insertion</li>
+                                            <li>Deletion</li>
+                                            <li>Searching</li>
+                                            <li>Traversing</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Searching & Sorting
+                                    <ul>
+                                        <li>Searching
+                                            <ul>
+                                                <li>Linear Search</li>
+                                                <li>Binary Search</li>
+                                            </ul>
+                                        </li>
+                                        <li>Sorting
+                                            <ul>
+                                                <li>Insertion Sort</li>
+                                                <li>Bubble sort</li>
+                                                <li>Selection Sort</li>
+                                                <li>Merge Sort</li>
+                                                <li>Quick Sort</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th>S.No</th>
+                        <th>Program</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="">Pairing the socks</a></td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="card">
+                <h5 class="card-title">Level-3</h5>
+                <h6>Contains programs that are based on Algorithms</h6>
+                <ul>
+                    <li><h5>Algorithms</h5>
+                        <ul>
+                            <li>Dynamic Programming</li>
+                            <li>Backtracking</li>
+                        </ul>
+                    </li>
+                </ul>
+                <table class="table">
+                    <tr>
+                        <th>S.No</th>
+                        <th>Program</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="">Pairing the socks</a></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div id="aptitude-shedule">
+            <h3>Aptitude Preparation</h3>
+        </div>
+    </div>
+</body>
+</html>
