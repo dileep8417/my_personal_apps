@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <title>Placement Prep...</title>
     <style>
         #shedule{
@@ -35,7 +36,12 @@
             padding:10px;
             margin-bottom: 10px;;
         }
-        
+        input[type='checkbox']{
+            position: relative;
+           left:50%;
+           transform: translateX(-50%);
+           outline: none;
+        }
         @media(max-width:620px){
             #shedule{
                 flex-direction: column;
@@ -55,82 +61,98 @@
                         <th>S.No</th>
                         <th>Program</th>
                         <th>Resourse</th>
+                        <th>Status</th>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td><a target="_blank" href="https://www.hackerrank.com/challenges/picking-numbers/problem">Picking Numbers</a></td>
                         <td>HackerRank</td>
+                        <td><input type="checkbox" id="box1"></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td><a target="_blank" href="https://www.hackerrank.com/challenges/save-the-prisoner/problem">Save the Prisoner!
                         </a></td>
                         <td>HackerRank</td>
+                        <td><input type="checkbox" id="box2"></td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td><a target="_blank" href="https://www.hackerrank.com/challenges/pangrams/problem">Pangrams</a></td>
                         <td>HackerRank</td>
+                        <td><input type="checkbox" id="box3"></td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td><a target="_blank" href="https://leetcode.com/problems/maximum-number-of-balloons/">Maximum Number of Balloons</a></td>
                         <td>LeetCode</td>
+                        <td><input type="checkbox" id="box4"></td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td><a target="_blank" href="https://practice.geeksforgeeks.org/problems/find-nth-element-of-spiral-matrix/1">Find nth element of spiral matrix</a></td>
                         <td>GeekforGeeks</td>
+                        <td><input type="checkbox" id="box5"></td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td><a target="_blank" href="https://leetcode.com/problems/reverse-string-ii/">Reverse String II</a></td>
                         <td>LeetCode</td>
+                        <td><input type="checkbox" id="box6"></td>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td><a target="_blank" href="https://practice.geeksforgeeks.org/problems/exit-point-in-a-matrix/0">Exit Point in a Matrix</a></td>
                         <td>GeekforGeeks</td>
+                        <td><input type="checkbox" id="box7"></td>
                     </tr>
                     <tr>
                         <td>8</td>
                         <td><a target="_blank" href="https://www.hackerearth.com/practice/algorithms/string-algorithm/basics-of-string-manipulation/practice-problems/algorithm/secret-messages/">Secret Messages!</a></td>
                         <td>HackerEarth</td>
+                        <td><input type="checkbox" id="box8"></td>
                     </tr>
                     <tr>
                         <td>9</td>
                         <td><a target="_blank" href="https://leetcode.com/problems/sort-array-by-parity-ii/">Sort Array By Parity II</a></td>
                         <td>LeetCode</td>
+                        <td><input type="checkbox" id="box9"></td>
                     </tr>
                     <tr>
                         <td>10</td>
                         <td><a target="_blank" href="https://leetcode.com/problems/minimum-time-visiting-all-points/">Minimum Time Visiting All Points</a></td>
                         <td>LeetCode</td>
+                        <td><input type="checkbox" id="box10"></td>
                     </tr>
                     <tr>
                         <td>11</td>
                         <td><a target="_blank" href="https://leetcode.com/problems/toeplitz-matrix/">Toeplitz Matrix</a></td>
                         <td>LeetCode</td>
+                        <td><input type="checkbox" id="box11"></td>
                     </tr>
                     <tr>
                         <td>12</td>
                         <td><a target="_blank" href="https://www.hackerearth.com/practice/algorithms/string-algorithm/basics-of-string-manipulation/practice-problems/algorithm/sumits-string/">Sumit's String</a></td>
                         <td>HackerEarth</td>
+                        <td><input type="checkbox" id="box12"></td>
                     </tr>
                     <tr>
                         <td>13</td>
                         <td><a target="_blank" href="https://practice.geeksforgeeks.org/problems/search-in-a-matrix/0">Search in a matrix</a></td>
                         <td>GeekforGeeks</td>
+                        <td><input type="checkbox" id="box13"></td>
                     </tr>
                     <tr>
                         <td>14</td>
                         <td><a target="_blank" href="https://practice.geeksforgeeks.org/problems/find-the-string-in-grid/0">Find the string in grid</a></td>
                         <td>GeekforGeeks</td>
+                        <td><input type="checkbox" id="box14"></td>
                     </tr>
                     <tr>
                         <td>15</td>
                         <td><a target="_blank" href="https://www.hackerrank.com/challenges/flipping-bits/problem">Flipping bits</a></td>
                         <td>HackerRank</td>
+                        <td><input type="checkbox" id="box15"></td>
                     </tr>
                 </table>
             </div>
@@ -220,3 +242,51 @@
     </div>
 </body>
 </html>
+<script>
+    var completed = []
+    function markBoxes(list){
+        for(let i=0;i<list.length;i++){
+                $("#"+list[i]).prop("checked",true);
+        }
+    }
+    $(document).ready(function(){
+        if(getCookie('completed')!=""){
+            completed = getCookie('completed').split(',');
+            markBoxes(completed);
+        }
+        $('input[type=checkbox]').click(function(){
+            if($(this).prop('checked')){
+                completed.push($(this).attr('id'))
+            }else{
+                completed.pop($(this).attr('id'))
+            }
+            markBoxes(completed);
+            setCookie('completed',completed,100)
+            console.log(completed)
+        });
+    })
+</script>
+<script>
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+</script>
